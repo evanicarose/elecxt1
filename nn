@@ -1,0 +1,240 @@
+import 'package:flutter/material.dart';
+
+class IndexScreen extends StatelessWidget {
+  const IndexScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.zero, // Makes corners sharp
+        ),
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.all(20), // Reduced padding for better spacing
+          child: SizedBox(
+            height: 600,
+            width: 800,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start, // Aligns content to the left
+              children: [
+                /// Title and Rating Row
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Star Wars: The Last Jedi",
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          "Action & Adventure",
+                          style: TextStyle(
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "7.4",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                            fontSize: 18,
+                          ),
+                        ),
+                        Text(
+                          " /10",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20), // Adds spacing between rows
+                /// Image and About Section
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8), // Adds rounded corners
+                      child: Image.asset(
+                        "assets/images/pic1.jpg",
+                        width: 300, 
+                        height: 400, 
+                        fit: BoxFit.cover, 
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start, 
+                        children: [
+                          Text(
+                            "About the movie",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "In Lucasfilm's Star Wars: The Last Jedi, the Skywalker saga\n"
+                            "continues as the heroes of The Force Awakens join the galactic\n"
+                            "legends in an epic adventure that unlocks new mysteries of the\n"
+                            "Force and shocking revelations of the past.",
+                          ),
+                          SizedBox(height: 20), 
+                          
+                          /// Row for Actors and Director/Screenwriter
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              /// Actors Column
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Actors",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "Oscar Isaac\n"
+                                      "Mark Hamill\n"
+                                      "Daisy Ridley\n"
+                                      "John Boyega\n"
+                                      "Kelly Marie Tran",
+                                    ),
+                                    SizedBox(height: 20),
+                                    Text(
+                                      "More",
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              SizedBox(width: 20), // Space between columns
+
+                              /// Director & Screenwriter Column
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Director",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    Text("Rian Johnson"),
+                                    SizedBox(height: 10), // Space between sections
+                                    Text(
+                                      "Screenwriter",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    Text("Rian Johnson"),
+                                  ],
+                                ),
+                              ),
+
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                        "Producers",
+                                        style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    Text(
+                                        "Kathleen Kennedy\nRam Bergman",
+                                    ),
+                                    
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text("\$19.00"),
+                            SizedBox(width: 100,),
+                            Container(
+                              width: 100,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                color: Colors.grey,
+                                borderRadius: BorderRadius.all(Radius.circular(10)),
+                              ),
+                              child: Text(
+                                "BUY",
+                              ),
+                            ),
+                          ],
+                          
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          // color: Colors.grey,
+                          width: 150,
+                          height: 40,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: Colors.grey,
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          child: Text(
+                            "WATCH TRAILER",
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
