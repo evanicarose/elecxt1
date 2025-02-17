@@ -5,105 +5,272 @@ class IndexScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          children: [
-            Text("Second Project")
-          ],
+    return Center(
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.zero, // Makes corners sharp
         ),
-        backgroundColor: const Color.fromARGB(255, 255, 162, 193),
-      ),
-
-      body: Center(
-        child: Card(
-          color: const Color.fromARGB(255, 242, 195, 211),
-          child: Container(
-            height: 300,
-            width: 400,
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                width: 2.0,
-              ),
-            ),
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: SizedBox(
+            height: 600,
+            width: 800,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Expanded(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Image.asset(
-                      "assets/images/pic1.jpg",
-                      width: 400,
-                      height: 220,
-                      fit: BoxFit.cover,
-                      
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10),
+                /// Title and Rating Row
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CircleAvatar(
-                          radius: 22,
-                          backgroundColor: const Color.fromARGB(255, 57, 3, 21),
-                          child: CircleAvatar(
-                            radius: 20,
-                            backgroundImage: AssetImage('images/pic2.jpg'),
+                        Text(
+                          "Star Wars: The Last Jedi",
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(width: 5),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(width: 15),
-                            Text(
-                              'Evanica Rose Juarbal',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on,
-                                ),
-                                Text(
-                                  "Bislig City, Surigao del Sur"
-                                ),
-                              ],
-                            ),
-                          ],
+                        Text(
+                          "Action & Adventure",
+                          style: TextStyle(
+                            color: Colors.blue,
+                          ),
                         ),
                       ],
                     ),
                     Row(
                       children: [
                         Text(
-                          "4.8",
+                          "7.4",
                           style: TextStyle(
-                            fontSize: 20,
                             fontWeight: FontWeight.bold,
-                            color: const Color.fromARGB(255, 214, 78, 33),
+                            color: Colors.blue,
+                            fontSize: 18,
                           ),
                         ),
-                        SizedBox(width: 5),
-                        Icon(
-                          Icons.star,
-                          size: 40,
-                          color:  const Color.fromARGB(255, 214, 78, 33),
+                        Text(
+                          " /10",
+                          style: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 16,
+                          ),
                         ),
-                        
                       ],
                     ),
                   ],
                 ),
-              ]
+                SizedBox(height: 20),
+
+                /// Image and About Section
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(8),
+                      child: Image.asset(
+                        "assets/images/jedi.jpg",
+                        width: 300,
+                        height: 400,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    SizedBox(width: 20),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "About the movie",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Text(
+                            "In Lucasfilm's Star Wars: The Last Jedi, the Skywalker saga\n"
+                            "continues as the heroes of The Force Awakens join the galactic\n"
+                            "legends in an epic adventure that unlocks new mysteries of the\n"
+                            "Force and shocking revelations of the past.",
+                          ),
+                          SizedBox(height: 20),
+
+                          /// Row for Actors and Director/Screenwriter
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              /// Actors Column
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Actors",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    Text(
+                                      "Oscar Isaac\n"
+                                      "Mark Hamill\n"
+                                      "Daisy Ridley\n"
+                                      "John Boyega\n"
+                                      "Kelly Marie Tran",
+                                    ),
+                                    SizedBox(height: 20),
+                                    Text(
+                                      "More",
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 20),
+
+                              /// Director & Screenwriter Column
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Director",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    Text("Rian Johnson"),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      "Screenwriter",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    Text("Rian Johnson"),
+                                  ],
+                                ),
+                              ),
+
+                              /// Producers Column
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Producers",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Kathleen Kennedy\nRam Bergman",
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30),
+
+                /// Price and Buttons
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          "\$19.00",
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        SizedBox(width: 100),
+                        OutlinedButton(
+                          onPressed: () {
+                            // Handle Buy action
+                          },
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: Colors.white,
+                            side: BorderSide(color: Colors.black, width: 2),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                          ),
+                          child: Text(
+                            "BUY",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Handle Watch Trailer action
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent,
+                        padding: EdgeInsets.zero,
+                      ),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5), 
+                        decoration: BoxDecoration(
+                          color: Colors.black, 
+                          borderRadius: BorderRadius.circular(30), 
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "WATCH TRAILER",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                            SizedBox(width: 5), 
+                            Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle, 
+                              ),
+                              child: Center(
+                                child: Icon(
+                                  Icons.play_arrow,
+                                  color: Colors.black,
+                                  size: 25, 
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
+              ],
             ),
           ),
         ),
