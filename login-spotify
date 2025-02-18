@@ -1,0 +1,270 @@
+import 'package:flutter/material.dart';
+import 'package:toggle_switch/toggle_switch.dart';
+
+class IndexScreen extends StatelessWidget {
+  const IndexScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Colors.black,
+              Colors.grey,
+            ],
+          ),
+        ),
+        alignment: Alignment.center,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Card(
+            
+            elevation: 10,
+            color: Colors.black,
+            child: SizedBox(
+              height: 700,
+              width: 600,
+              
+              child: Column(
+                children: [
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Image.asset(
+                          "assets/images/logo.png",
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  const Text(
+                    "Log in to #6 Juarbal",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  const SizedBox(height: 30),
+          
+                  
+                  SizedBox(
+                    width: 300,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 8, 8, 8),
+                        side: const BorderSide(color: Colors.white, width: 2),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                     child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,  // Centers the row
+                        children: [
+                          Icon(
+                            Icons.email,
+                            color: Colors.white,  // Set color for the icon
+                          ),
+                          const SizedBox(width: 10),  // Space between icon and text
+                          const Text(
+                            "Continue with Google",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+          
+                  
+                  SizedBox(
+                    width: 300,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 8, 8, 8),
+                        side: const BorderSide(color: Colors.white, width: 2),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,  // Centers the row
+                        children: [
+                          Icon(
+                            Icons.facebook,
+                            color: Colors.white,  // Set color for the icon
+                          ),
+                          const SizedBox(width: 10),  // Space between icon and text
+                          const Text(
+                            "Continue with Facebook",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+          
+                  
+                 SizedBox(
+                    width: 300,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 8, 8, 8),
+                        side: const BorderSide(color: Colors.white, width: 2),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,  // Centers the row
+                        children: [
+                          Icon(
+                            Icons.email,
+                            color: Colors.white,  // Set color for the icon
+                          ),
+                          const SizedBox(width: 10),  // Space between icon and text
+                          const Text(
+                            "Continue with Apple",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+
+          
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: Divider(
+                      color: Colors.white,
+                      thickness: 0.5,
+                      indent: 50,
+                      endIndent: 50,
+                    ),
+                  ),
+
+                  SizedBox(
+                    width: 350,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Email or username",
+                        style: TextStyle(color: Colors.white),),
+                        SizedBox(height: 10,),
+                        TextFormField(
+                          style: TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: "Email or Username",
+                            border: OutlineInputBorder(),
+                            labelStyle: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  SizedBox(height: 10,),
+                  SizedBox(
+                    width: 350,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Password",
+                        style: TextStyle(color: Colors.white),),
+                        SizedBox(height: 10,),
+                        TextFormField(
+                          obscureText: true,
+                          style: TextStyle(color: Colors.white),
+                          decoration: const InputDecoration(
+                            labelText: "Password",
+                            border: OutlineInputBorder(),
+                            labelStyle: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                        SizedBox(height: 20,),
+                        Row(
+                          children: [
+                            ToggleSwitch(
+                              minWidth: 30.0, 
+                              cornerRadius: 20.0, 
+                              activeBgColors: [
+                                [const Color.fromARGB(255, 0, 0, 0)],
+                                [const Color.fromARGB(255, 0, 0, 0)],
+                              ],
+                              activeFgColor: Colors.white,
+                              inactiveBgColor: const Color.fromARGB(255, 16, 198, 53),
+                              inactiveFgColor: Colors.white,
+                              initialLabelIndex: 1,
+                              totalSwitches: 2,
+                              
+                              radiusStyle: true,
+                              onToggle: (index) {
+                               
+                              },
+                            ),
+                            SizedBox(width: 10), // Adjust the width between the switch and the text
+                            Text(
+                              "Remember me",
+                              style: TextStyle(color: Colors.white),
+                            ),
+
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  
+                  SizedBox(height: 20,),
+                  SizedBox(
+                    width: 250,
+                    height: 40,
+                    child: OutlinedButton(
+                      onPressed: () {},
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 16, 198, 53),
+                        side: const BorderSide(color: const Color.fromARGB(255, 16, 198, 53), width: 2),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      child: const Text(
+                        "Log In",
+                        style: TextStyle(color: Color.fromARGB(255, 0, 0, 0),
+                        fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+
+                  SizedBox(height: 20,),
+                  Text(
+                    "Forgot your password?",
+                    style: TextStyle(
+                      color: Colors.white,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.white,
+                      ),
+                  ),
+
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
