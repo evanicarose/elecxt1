@@ -1,0 +1,177 @@
+import 'package:flutter/material.dart';
+import 'package:toggle_switch/toggle_switch.dart';
+
+class IndexScreen extends StatelessWidget {
+  const IndexScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Colors.black,
+              Colors.grey,
+            ],
+          ),
+        ),
+        alignment: Alignment.center,
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              double cardWidth = constraints.maxWidth > 600 ? 500 : constraints.maxWidth * 0.9;
+              double buttonWidth = constraints.maxWidth > 600 ? 300 : constraints.maxWidth * 0.8;
+
+              return Card(
+                elevation: 10,
+                color: Colors.black,
+                child: SizedBox(
+                  height: 700,
+                  width: cardWidth,
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
+                        child: Image.asset(
+                          "assets/images/logo.jpg",
+                          width: 50,
+                          height: 50,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      const Text(
+                        "Log in to #6 Juarbal",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                      const SizedBox(height: 30),
+
+                      // Social Login Buttons
+                      socialButton(Icons.email, "Continue with Google", buttonWidth),
+                      const SizedBox(height: 10),
+                      socialButton(Icons.facebook, "Continue with Facebook", buttonWidth),
+                      const SizedBox(height: 10),
+                      socialButton(Icons.apple, "Continue with Apple", buttonWidth),
+
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 20),
+                        child: Divider(color: Colors.white, thickness: 0.5, indent: 50, endIndent: 50),
+                      ),
+
+                      // Email Field
+                      inputField("Email or username", "Enter your email or username"),
+                      const SizedBox(height: 10),
+                      inputField("Password", "Enter your password", isPassword: true),
+                      const SizedBox(height: 10),
+
+                      // Remember Me Toggle
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ToggleSwitch(
+                            minWidth: 30.0,
+                            cornerRadius: 20.0,
+                            activeBgColors: [
+                              [const Color.fromARGB(255, 0, 0, 0)],
+                              [const Color.fromARGB(255, 0, 0, 0)],
+                            ],
+                            activeFgColor: Colors.white,
+                            inactiveBgColor: const Color.fromARGB(255, 16, 198, 53),
+                            inactiveFgColor: Colors.white,
+                            initialLabelIndex: 1,
+                            totalSwitches: 2,
+                            radiusStyle: true,
+                            onToggle: (index) {},
+                          ),
+                          const SizedBox(width: 10),
+                          const Text("Remember me", style: TextStyle(color: Colors.white)),
+                        ],
+                      ),
+
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: buttonWidth * 0.8,
+                        height: 40,
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          style: OutlinedButton.styleFrom(
+                            backgroundColor: const Color.fromARGB(255, 16, 198, 53),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                          ),
+                          child: const Text(
+                            "Log In",
+                            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+                      const Text(
+                        "Forgot your password?",
+                        style: TextStyle(color: Colors.white, decoration: TextDecoration.underline),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+          ),
+        ),
+      ),
+    );
+  }
+
+  // Reusable Social Button
+  Widget socialButton(IconData icon, String text, double width) {
+    return SizedBox(
+      width: width,
+      child: OutlinedButton(
+        onPressed: () {},
+        style: OutlinedButton.styleFrom(
+          backgroundColor: const Color.fromARGB(255, 8, 8, 8),
+          side: const BorderSide(color: Colors.white, width: 2),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          padding: const EdgeInsets.symmetric(vertical: 12),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(icon, color: Colors.white),
+            const SizedBox(width: 10),
+            Text(text, style: const TextStyle(color: Colors.white)),
+          ],
+        ),
+      ),
+    );
+  }
+
+  // Reusable Input Field
+  Widget inputField(String label, String hint, {bool isPassword = false}) {
+    return SizedBox(
+      width: 350,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(label, style: const TextStyle(color: Colors.white)),
+          const SizedBox(height: 10),
+          TextFormField(
+            obscureText: isPassword,
+            style: const TextStyle(color: Colors.white),
+            decoration: InputDecoration(
+              labelText: hint,
+              border: const OutlineInputBorder(),
+              labelStyle: const TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
